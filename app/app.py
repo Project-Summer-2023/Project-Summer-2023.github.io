@@ -1,13 +1,20 @@
+import os
+
+
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
 
-@app.route("/")
-def hello_world():
-    return "Hello, World!"
+db = SQLAlchemy(app)
 
 
-@app.route("/index")
-def index():
-    return "testing"
+@app.before_first_request
+def initialize_database():
+    db.create_all()
+
+
+from app import views, models

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Manager</title>
+{% endblock %}
+
+{% block body %}
+
+<p>{{ error.value }}</p>
+
+<form action="" method="post">
+    <label for="task">Enter a task: </label>
+    <input type="text" name="task" id="task" required>
+    <input type="submit" value="Add">
+</form>
+{% endblock %}

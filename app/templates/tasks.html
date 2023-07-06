@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.css">
 <title>Task Manager</title>
 {% endblock %}
 
@@ -8,9 +10,21 @@
 
 <p>{{ error.value }}</p>
 
-<form action="" method="post">
+<!-- <form action="" method="post">
     <label for="task">Enter a task: </label>
     <input type="text" name="task" id="task" required>
     <input type="submit" value="Add">
-</form>
+</form> -->
+
+<div id="container">
+	<h1>To-Do List <i class="fa fa-plus"></i></h1>
+	<input type="text" placeholder="Add New Todo">
+
+	<ul>
+		<li><span><i class="fa fa-trash"></i></span> Go To Potions Class</li>
+		<li><span><i class="fa fa-trash"></i></span> Buy New Robes</li>
+		<li><span><i class="fa fa-trash"></i></span> Visit Hagrid</li>
+	</ul>
+</div>
+
 {% endblock %}

@@ -22,5 +22,8 @@ def tasks():
             return redirect("/tasks")
         except:
             return render_template("tasks.html", error=Error.insert)
+    else:
+        task_list = db.session.query(Tasks).all()
+        print(task_list)
 
-    return render_template("tasks.html", error=Error.none)
+        return render_template("tasks.html", error=Error.none, task_list=task_list)

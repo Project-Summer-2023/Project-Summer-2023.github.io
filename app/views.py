@@ -24,3 +24,8 @@ def tasks():
             return render_template("tasks.html", error=Error.insert)
 
     return render_template("tasks.html", error=Error.none)
+
+
+@app.route("/profile")
+def profile():
+    return {"name": "Ellie", "about": "cool"}

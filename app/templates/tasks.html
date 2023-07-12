@@ -12,5 +12,46 @@
     <label for="task">Enter a task: </label>
     <input type="text" name="task" id="task" required>
     <input type="submit" value="Add">
+
 </form>
+
+<div class="container text-center" id="task_table">
+    <div class="row">
+        <div class="col task_col table_header">
+            Task
+        </div>
+        <div class="col table_header">
+            Completed
+        </div>
+    </div>
+    {% for task in task_list %}
+
+    <div class="row">
+        <div class="col task_col">
+            {{ task.content }}
+        </div>
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value=""
+                    id="flexCheck{{ 'Default' if not task.completed else 'Checked' }}">
+                <label class="form-check-label" for="flexCheck{{ 'Default' if not task.completed else 'Checked'}}"
+                    {{ "checked" if task.completed }}>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    <!-- <div class="row">
+        <div class="col">
+            col1
+        </div>
+        <div class="col">
+            col2
+        </div>
+        <div class="col">
+            col3
+        </div>
+    </div> -->
+</div>
+
 {% endblock %}

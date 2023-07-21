@@ -24,6 +24,21 @@ def tasks():
             return render_template("tasks.html", error=Error.insert)
     else:
         task_list = db.session.query(Tasks).all()
-        print(task_list)
+        # print(type(task_list))
+        ret = []
+        for i in task_list:
+            # print(type(i))
+            ret.append({"id": i.id, "content": i.content, "completed": i.completed})
 
-        return render_template("tasks.html", error=Error.none, task_list=task_list)
+        # return task_list
+        return ret
+
+
+@app.route("/profile")
+def profile():
+    return {"name": "Ellie", "about": "cool"}
+
+
+@app.route("/test")  # type: ignore
+def test():
+    return {"id": 0, "age": 22}
